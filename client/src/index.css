@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark light;
+    --background: #0a0e17;
+    --foreground: #f8fafc;
+    --card: #111827;
+    --card-foreground: #f1f5f9;
+    --muted: #1e293b;
+    --muted-foreground: #94a3b8;
+    --border: #1e293b;
+    --primary: #38bdf8;
+    --primary-foreground: #0a0e17;
+    --accent: #818cf8;
+    --success: #34d399;
+    --nav-background: rgba(10, 14, 23, 0.85);
+  }
+
+  html.light {
+    --background: #f8fafc;
+    --foreground: #0f172a;
+    --card: #ffffff;
+    --card-foreground: #0f172a;
+    --muted: #f1f5f9;
+    --muted-foreground: #475569;
+    --border: #e2e8f0;
+    --primary: #0284c7;
+    --primary-foreground: #ffffff;
+    --accent: #4f46e5;
+    --success: #059669;
+    --nav-background: rgba(255, 255, 255, 0.9);
+  }
+
+  body {
+    @apply bg-[#0a0e17] text-slate-100 font-sans antialiased selection:bg-sky-500 selection:text-white transition-colors duration-200 min-h-screen overflow-x-hidden;
+  }
+
+  html.light body {
+    @apply bg-slate-50 text-slate-900 selection:bg-sky-600 selection:text-white;
+  }
+
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+@layer utilities {
+
+  /* Cards */
+  .glass-card {
+    @apply bg-[#111827]/80 backdrop-blur-md border border-slate-800 rounded-2xl shadow-xl shadow-black/20 hover:border-slate-700 transition-all duration-200;
+  }
+
+  html.light .glass-card {
+    @apply bg-white border border-slate-200 shadow-md shadow-slate-200/60 hover:border-slate-300;
+  }
+
+  /* Navigation */
+  .glass-nav {
+    @apply bg-[#0a0e17]/90 backdrop-blur-lg border-b border-slate-800/80;
+  }
+
+  html.light .glass-nav {
+    @apply bg-white/90 backdrop-blur-lg border-b border-slate-200/90 shadow-sm;
+  }
+
+  /* Text Overrides for Light Mode */
+  html.light .text-slate-100,
+  html.light .text-slate-200 {
+    color: #0f172a !important;
+  }
+
+  html.light .text-slate-300 {
+    color: #334155 !important;
+  }
+
+  html.light .text-slate-400 {
+    color: #475569 !important;
+  }
+
+  html.light .text-slate-500 {
+    color: #64748b !important;
+  }
+
+  /* Accent Colors for Light Mode */
+  html.light .text-sky-400 {
+    color: #0284c7 !important;
+  }
+
+  html.light .text-sky-300 {
+    color: #0369a1 !important;
+  }
+
+  html.light .text-emerald-400 {
+    color: #059669 !important;
+  }
+
+  html.light .text-amber-400 {
+    color: #d97706 !important;
+  }
+
+  html.light .text-indigo-400 {
+    color: #4f46e5 !important;
+  }
+
+  html.light .text-purple-400 {
+    color: #9333ea !important;
+  }
+
+  /* Background Overrides for Light Mode */
+  html.light .bg-slate-950,
+  html.light .bg-slate-950\/60,
+  html.light .bg-slate-950\/80,
+  html.light .bg-slate-900,
+  html.light .bg-slate-900\/90,
+  html.light .bg-slate-900\/95 {
+    background-color: #ffffff !important;
+  }
+
+  html.light .bg-slate-900\/50,
+  html.light .bg-slate-900\/60,
+  html.light .bg-slate-900\/40,
+  html.light .bg-slate-900\/80,
+  html.light .bg-slate-800 {
+    background-color: #f8fafc !important;
+  }
+
+  /* Border Overrides for Light Mode */
+  html.light .border-slate-800,
+  html.light .border-slate-800\/80,
+  html.light .border-slate-800\/90,
+  html.light .border-slate-700,
+  html.light .border-slate-700\/80,
+  html.light .border-slate-700\/60 {
+    border-color: #e2e8f0 !important;
+  }
+
+  /* Badges in Light Mode */
+  html.light .bg-sky-500\/10,
+  html.light .bg-sky-500\/20 {
+    background-color: #e0f2fe !important;
+    border-color: #bae6fd !important;
+  }
+
+  html.light .bg-emerald-500\/10,
+  html.light .bg-emerald-500\/20 {
+    background-color: #d1fae5 !important;
+    border-color: #a7f3d0 !important;
+  }
+
+  html.light .bg-amber-500\/10 {
+    background-color: #fef3c7 !important;
+    border-color: #fde68a !important;
+  }
+
+  html.light .bg-indigo-500\/10 {
+    background-color: #e0e7ff !important;
+    border-color: #c7d2fe !important;
+  }
+
+  /* Gradients & Special Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent;
+  }
+
+  html.light .gradient-text {
+    @apply bg-gradient-to-r from-sky-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent;
+  }
+
+  /* 3D Utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .translate-z-10 {
+    transform: translateZ(10px);
+  }
+
+  .translate-z-20 {
+    transform: translateZ(20px);
+  }
+
+  .translate-z-30 {
+    transform: translateZ(30px);
+  }
+
+  .translate-z-50 {
+    transform: translateZ(50px);
+  }
+
+  .card-3d-glow {
+    box-shadow: 0 20px 40px -15px rgba(14, 165, 233, 0.15), 0 0 20px -5px rgba(99, 102, 241, 0.1);
+  }
+
+  html.light .card-3d-glow {
+    box-shadow: 0 15px 30px -10px rgba(14, 165, 233, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  /* 3D Floating Bobbing Animation */
+  @keyframes float3D {
+
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+      transform: translateY(-8px) rotate(2deg);
+    }
+  }
+
+  .animate-float-3d {
+    animation: float3D 4s ease-in-out infinite;
+  }
+
+  .animate-float-3d-delayed {
+    animation: float3D 5s ease-in-out 2s infinite;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0e17;
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
