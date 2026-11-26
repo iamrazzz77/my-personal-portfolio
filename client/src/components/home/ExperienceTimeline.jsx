@@ -116,7 +116,7 @@ export const ExperienceTimeline = () => {
                             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                             <span>Active RVM Field Operations & Deployment Gallery</span>
                           </div>
-                          <div className="grid grid-cols-3 gap-2">
+                          <div className={`grid gap-2 ${exp.workplaceImages.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
                             {exp.workplaceImages.map((img, i) => (
                               <div key={i} className="group/img relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3]">
                                 <img

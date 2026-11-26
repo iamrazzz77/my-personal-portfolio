@@ -222,6 +222,18 @@ export const portfolioData = {
         "Hardware Diagnostics",
         "Web Development",
         "Networking & Security"
+      ],
+      workplaceImages: [
+        {
+          url: "/images/rvm/rvm-granada-mall-riyadh.jpg",
+          title: "Granada Mall RVM Hub",
+          caption: "Production smart recycling kiosk deployment in Riyadh"
+        },
+        {
+          url: "/images/rvm/rvm-developer-work.jpg",
+          title: "Kiosk Telemetry & Backend",
+          caption: "REST API diagnostics, SQL ledger sync & system maintenance"
+        }
       ]
     },
     {
@@ -387,7 +399,7 @@ export const portfolioData = {
       { stage: "Dashboard", desc: "React analytics dashboard with fill-level alerts" },
       { stage: "Operations", desc: "On-site diagnostics & fleet maintenance in Riyadh" }
     ],
-    heroImage: "/images/rvm/hero.webp",
+    heroImage: "/images/rvm/rvm-granada-mall-riyadh.jpg",
     caseStudyUrl: "/projects/reverse-vending-machine"
   }
 };
