@@ -73,25 +73,25 @@ export const Navbar = () => {
       <div className={`transition-all duration-300 ${scrolled ? 'pt-2 pb-2' : 'pt-3 pb-3'}`}>
         <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ${scrolled ? 'max-w-6xl' : ''
           }`}>
-          <div className={`flex items-center justify-between gap-6 lg:gap-10 transition-all duration-300 px-4 py-2.5 rounded-2xl ${scrolled ? 'glass-card border border-slate-800/90 bg-[#0a0f1d]/90 shadow-2xl backdrop-blur-xl' : 'bg-transparent'
+          <div className={`flex items-center justify-between gap-2 sm:gap-4 lg:gap-10 transition-all duration-300 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-2xl ${scrolled ? 'glass-card border border-slate-800/90 bg-[#0a0f1d]/90 shadow-2xl backdrop-blur-xl' : 'bg-transparent'
             }`}>
 
             {/* Profile Area (Left) */}
-            <Link to="/" className="flex items-center gap-3 shrink-0 group">
-              <div className="w-10 h-10 rounded-xl p-0.5 bg-gradient-to-tr from-sky-500 to-indigo-600 shadow-md group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+            <Link to="/" className="flex items-center gap-2.5 sm:gap-3 min-w-0 sm:shrink-0 group">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl p-0.5 bg-gradient-to-tr from-sky-500 to-indigo-600 shadow-md group-hover:scale-105 transition-transform duration-300 overflow-hidden shrink-0">
                 <img
                   src={portfolioData.profile.profileImage || "/images/faishal-saif-profile.jpg"}
                   alt={portfolioData.profile.name}
                   className="w-full h-full object-cover object-top rounded-[10px]"
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="font-extrabold text-slate-100 text-sm group-hover:text-sky-400 transition-colors leading-tight">
+              <div className="flex flex-col min-w-0">
+                <span className="font-extrabold text-slate-100 text-xs sm:text-sm group-hover:text-sky-400 transition-colors leading-tight truncate">
                   {portfolioData.profile.name}
                 </span>
-                <span className="text-[11px] text-sky-400 font-mono font-medium flex items-center gap-1 leading-tight mt-0.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                  IT Engineer | Full-Stack
+                <span className="text-[10px] sm:text-[11px] text-sky-400 font-mono font-medium flex items-center gap-1 leading-tight mt-0.5 truncate">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+                  <span className="truncate">IT Engineer | Full-Stack</span>
                 </span>
               </div>
             </Link>
@@ -117,7 +117,7 @@ export const Navbar = () => {
             </nav>
 
             {/* Right Action Utilities */}
-            <div className="flex items-center gap-3 shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
 
               {/* Primary Resume CTA Button */}
               <Link
@@ -132,10 +132,10 @@ export const Navbar = () => {
               {/* Premium AI Assistant Button ("Ask AI ✦") */}
               <button
                 onClick={openAiAssistant}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-600 hover:from-sky-400 hover:to-purple-500 text-white font-mono text-xs font-bold shadow-md shadow-sky-500/20 hover:scale-105 transition-all"
+                className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-600 hover:from-sky-400 hover:to-purple-500 text-white font-mono text-[11px] sm:text-xs font-bold shadow-md shadow-sky-500/20 hover:scale-105 transition-all whitespace-nowrap"
                 title="Ask AI Portfolio Assistant"
               >
-                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                <Sparkles className="w-3.5 h-3.5 text-amber-300 shrink-0" />
                 <span>Ask AI ✦</span>
               </button>
 
@@ -143,16 +143,17 @@ export const Navbar = () => {
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={toggleTheme}
-                className="p-2 rounded-xl glass-card text-slate-300 hover:text-sky-400 border border-slate-700/60 transition-all flex items-center justify-center"
+                className="w-9 h-9 rounded-xl glass-card text-slate-200 hover:text-sky-400 border border-slate-700/80 shadow-sm transition-all flex items-center justify-center shrink-0"
                 aria-label="Toggle dark/light mode"
+                title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
               >
-                {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-400" />}
+                {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-500" />}
               </motion.button>
 
               {/* Mobile Hamburger Toggle */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 rounded-xl glass-card text-slate-300 hover:text-sky-400 border border-slate-700/60 transition-all"
+                className="lg:hidden w-9 h-9 rounded-xl glass-card text-slate-200 hover:text-sky-400 border border-slate-700/80 shadow-sm transition-all flex items-center justify-center shrink-0"
                 aria-label="Toggle mobile menu"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -194,6 +195,19 @@ export const Navbar = () => {
             </div>
 
             <div className="pt-3 border-t border-slate-800/80 flex flex-col gap-2">
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl glass-card border border-slate-700/80 text-slate-200 font-mono text-xs font-medium transition-all"
+              >
+                <span className="flex items-center gap-2">
+                  {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-500" />}
+                  <span>{isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}</span>
+                </span>
+                <span className="px-2 py-0.5 rounded-md text-[10px] bg-sky-500/10 text-sky-400 border border-sky-500/30">
+                  {isDark ? 'Dark' : 'Light'}
+                </span>
+              </button>
               <Link
                 to="/resume"
                 onClick={() => setMobileMenuOpen(false)}
